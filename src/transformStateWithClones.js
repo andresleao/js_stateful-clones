@@ -9,6 +9,7 @@
 function transformStateWithClones(state, actions) {
   // write code here
   let newState = { ...state };
+  const statesAfterActions = [];
 
   actions.forEach((action) => {
     switch (action.type) {
@@ -31,9 +32,11 @@ function transformStateWithClones(state, actions) {
       default:
         break;
     }
+
+    statesAfterActions.push({ ...newState });
   });
 
-  return [newState];
+  return statesAfterActions;
 }
 
 module.exports = transformStateWithClones;
